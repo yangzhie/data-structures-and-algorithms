@@ -2,10 +2,11 @@
 
 void traversal();
 void insertion();
+void deletion();
 
 int main()
 {
-    insertion();
+    deletion();
 }
 
 /*
@@ -39,6 +40,11 @@ void traversal()
         printf("%d ", a[i]);
     }
 }
+
+/*
+ * Insertion:
+ * Insert data at any position in an array
+ */
 
 void insertion()
 {
@@ -100,6 +106,71 @@ void insertion()
      * i.e if for this array if you wanted to store a number at a[20], this is not possible
      * as the data in arrays is stored in continuous locations.
      */
+
+    // Print output array
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", a[i]);
+    }
+}
+
+/*
+ * Deletion: Delete data at any position in an array
+ */
+
+void deletion()
+{
+    int a[50];
+    int size;
+    int position;
+
+    // User input: size of array
+    printf("Enter the size of the array: \n");
+    scanf("%d", &size);
+
+    // User input: elements of array
+    printf("Enter the elements of the array: \n");
+    for (int i = 0; i < size; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    // User input: position
+    printf("What position do you want to delete the element from?: \n");
+    scanf("%d", &position);
+
+    /*
+     * I want to delete the data present at position 2.
+     * [1, 2, 3, 4, 5]
+     *  0  1  2  3  4
+     * p-1 p
+     * What needs to happen is when the deletion occurs, we need to shift all existing elements
+     * one to the left and fill up the array so that it is continuous.
+     * We start the loop from pos - 1, the index until size - 1.
+     * This time, we start from position - 1 => 0
+     * The loop ends at the end of the array, size - 1 => 4
+     */
+
+    /*
+     * Delete the first element in the array: i = 0; i < size - 1; i++
+     * Remove the last element by reducing the logical size
+     * if (size > 0) {
+     *    size--;  Decrease the logical size by 1
+     * }
+     */
+    for (int i = position - 1; i < size - 1; i++)
+    {
+        /*
+         * a[i + 1] would be shifted to a[i]
+         * At the start, i = position - 1 = 2 - 1 => i = 1
+         * Then i < size = 1 < 5 - 1 = 4 => true, continue
+         * Thus, a[1] = a[2]
+         * So a[2]'s element would be transferred to a[1]
+         */
+
+        a[i] = a[i + 1];
+    }
+    size--; // Size of the array has been decremented due to deletion
 
     // Print output array
     for (int i = 0; i < size; i++)
