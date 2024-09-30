@@ -1,15 +1,27 @@
-CFLAGS = -Wall -g
+# Compiler
+CC = gcc
 
-# Rule to build the executable "main" from linked_list.c
-# - The $@ is the target (main), and $^ is the dependencies (linked_list.o)
-main: linked_lists.o
-	gcc $(CFLAGS) -o $@ $^
+# Compiler flags
+CFLAGS = -Wall -Werror
 
-# Rule to build the object file linked_list.o from linked_list.c
-# - This compiles the .c file into an object file
-linked_list.o: linked_lists.c
-	gcc $(CFLAGS) -c $<
+# Source and object files
+SRC = linked_lists/singly/insertion.c
+OBJ = insertion.o
 
-# Clean rule to remove generated files
+# Target executable
+TARGET = insertion
+
+# Default target
+all: $(TARGET)
+
+# Link the object file to create the executable
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
+
+# Compile the source file into an object file
+$(OBJ): $(SRC)
+	$(CC) $(CFLAGS) -c $(SRC)
+
+# Clean up object and executable files
 clean:
-	rm -f arrays linked_lists main linked_lists.o
+	rm -f $(OBJ) $(TARGET)
