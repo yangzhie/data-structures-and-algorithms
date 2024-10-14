@@ -24,6 +24,10 @@ void creation()
     if (head == 0)
     {
         head = tail = newNode;
+
+        // For circular, ensure that both the head and tail are linked to each other
+        newNode->next = newNode;
+        newNode->prev = newNode;
     }
     else
     {
