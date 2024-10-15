@@ -5,11 +5,11 @@ CC = gcc
 CFLAGS = -Wall -Werror
 
 # Source and object files
-SRC = linked_lists/singly/insertion.c
-OBJ = insertion.o
+SRC = stacks/implement_arrays.c
+OBJ = implement_arrays.o
 
 # Target executable
-TARGET = insertion
+TARGET = implement_arrays
 
 # Default target
 all: $(TARGET)
