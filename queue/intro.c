@@ -11,7 +11,12 @@ int main()
  * First in first out (FIFO).
  * 
  * Insertion (Enqueue) is performed from the Rear/fail
- * Deletion (Dequeue) is performed from the Front/head 
+ * Deletion (Dequeue) is performed from the Front/head
+ * 
+ * Implementation:
+ * - Stacks
+ * - Arrays
+ * - Linked Lists
  * 
  * Applications:
  * - CPU scheduling
